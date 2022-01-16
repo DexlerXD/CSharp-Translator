@@ -27,7 +27,7 @@ namespace Translate
                 Console.WriteLine(result[i]);
             }
 
-            File.WriteAllLines("translate.txt", result);
+            File.WriteAllLines("output.txt", result);
             Console.WriteLine("Press any key to exit");
             Console.ReadKey();
         }
