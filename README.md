@@ -1,5 +1,6 @@
 # CSharp-Translator
 This is a little c# console app which works on a google api.
+It is currently working as a console app, but I have plans to use the  method ` TranslateContent() ` in other programs or projects. Feel free to use it in your work, but please, mention this repo or me, thanks!
 
 ## How does it works?
 I have found a little google api workaround, which allowed me to automatically translate some text.
