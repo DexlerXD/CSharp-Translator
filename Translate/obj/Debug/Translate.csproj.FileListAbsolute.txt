@@ -12,3 +12,10 @@ D:\Desktop\code\CSharp-Translator\Translate\obj\Debug\Translate.csproj.AssemblyR
 D:\Desktop\code\CSharp-Translator\Translate\obj\Debug\Translate.csproj.CoreCompileInputs.cache
 D:\Desktop\code\CSharp-Translator\Translate\obj\Debug\Translate.exe
 D:\Desktop\code\CSharp-Translator\Translate\obj\Debug\Translate.pdb
+C:\Users\skril\Desktop\CSharp-Translator\Translate\bin\Debug\Translate.exe.config
+C:\Users\skril\Desktop\CSharp-Translator\Translate\bin\Debug\Translate.exe
+C:\Users\skril\Desktop\CSharp-Translator\Translate\bin\Debug\Translate.pdb
+C:\Users\skril\Desktop\CSharp-Translator\Translate\obj\Debug\Translate.csproj.CoreCompileInputs.cache
+C:\Users\skril\Desktop\CSharp-Translator\Translate\obj\Debug\Translate.exe
+C:\Users\skril\Desktop\CSharp-Translator\Translate\obj\Debug\Translate.pdb
+C:\Users\skril\Desktop\CSharp-Translator\Translate\obj\Debug\Translate.csproj.AssemblyReference.cache

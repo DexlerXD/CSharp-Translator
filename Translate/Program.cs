@@ -25,10 +25,9 @@ namespace Translate
 
             for (int i = 0; i < content.Length; i++)
             {
-                string trimmed = String.Concat(content[i].Where(c => !Char.IsWhiteSpace(c))); 
-                //Создаём строку, которая явялется строкой из массива контента без пробелов
-                result[i] = TranslateContent(firstLang, secondLang, trimmed);
-                Console.WriteLine(content[i] + " -> " + result[i]);
+                result[i] = TranslateContent(firstLang, secondLang, content[i]);
+                Console.WriteLine(content[i]);
+                Console.WriteLine(result[i]);
                 //Выполняем перевод строки и выводим результат на экран
             }
 
@@ -40,6 +39,11 @@ namespace Translate
 
         public static string TranslateContent(string firstLang, string secondLang, string content)
         {
+            string resultSentence = "";
+            int startIndex = 1;
+            int endIndex = 1;
+            string tempSentence;
+
             string result;
             string url;
 
@@ -61,9 +65,52 @@ namespace Translate
             }
             //Пытаемся скачать результат нашего запроса. Если получилось, то результат становится скачанным переводом. Если не получилось - то выводим сообщение ошибки и возвращаем контент для перевода.
 
-            result = result.Substring(4, result.IndexOf("\"", 4, StringComparison.Ordinal) - 4);
-            return result;
+            int amountOfSentence = GetAmountOfSentence(content);
+
+            for (int i = 0; i < amountOfSentence; i++)
+            {
+                startIndex = result.IndexOf("\"", endIndex, StringComparison.Ordinal) + 1;
+                endIndex = result.IndexOf("\"", startIndex, StringComparison.Ordinal);
+                tempSentence = result.Substring(startIndex, endIndex - startIndex);
+
+                endIndex = result.IndexOf("]", startIndex, StringComparison.Ordinal);
+                if (!isRealSentence(tempSentence))
+                {
+                    i--;
+                    continue;
+                }
+
+                resultSentence += tempSentence;
+            }
+
+            return resultSentence;
             //Результат перевода вычленяем из полученного результата с сайта и возвращаем его
+        }
+
+        private static int GetAmountOfSentence(string content)
+        {
+            int amountOfSentence = 0;
+
+            foreach(char ch in content)
+            {
+                if (ch == '.' || ch == '!' || ch == '?')
+                    amountOfSentence++;
+            }
+
+            return amountOfSentence;
+        }
+
+        private static bool isRealSentence(string sentence)
+        {
+            bool isReal = true;
+
+            if (sentence.Length == 0)
+                isReal = false;
+
+            if (!sentence.Contains(' '))
+                isReal = false;
+
+            return isReal;
         }
     }
 }
