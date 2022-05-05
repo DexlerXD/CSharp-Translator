@@ -89,6 +89,7 @@ namespace Translate
 
         private static int GetAmountOfSentence(string content)
         {
+            //Метод для возврата количества фраз
             int amountOfSentence = 0;
 
             foreach(char ch in content)
@@ -96,19 +97,23 @@ namespace Translate
                 if (ch == '.' || ch == '!' || ch == '?')
                     amountOfSentence++;
             }
+            //Метод считает каждый символ и при нахождении одного из трёх символов инкрементирует переменную
 
             return amountOfSentence;
         }
 
         private static bool isRealSentence(string sentence)
         {
+            //Метод определения действительности предложения
             bool isReal = true;
 
             if (sentence.Length == 0)
                 isReal = false;
+            //Если предложение имеет длину 0, то переменная обращается в false
 
             if (!sentence.Contains(' '))
                 isReal = false;
+            //Если предложение не имеет кавычек, то переменная обращаеися в false
 
             return isReal;
         }
